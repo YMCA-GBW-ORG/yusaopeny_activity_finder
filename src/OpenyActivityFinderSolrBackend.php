@@ -456,7 +456,19 @@ class OpenyActivityFinderSolrBackend extends OpenyActivityFinderBackend {
         $atc_info['time_end_calendar'] = DrupalDateTime::createFromTimestamp(strtotime($dates[0]->field_session_time_date->getValue()[0]['end_value'] . 'Z'), $this->timezone)->format('Y-m-d H:i:s');
         $atc_info['timezone'] = date_default_timezone_get();
       }
+      $location_values = $fields['field_session_location']->getValues();
+      $location_id = NULL;
+      $first_location_value = NULL;
+      $af_location_info = [];
 
+      if (!empty($location_values)) {
+        $first_location_value = reset($location_values);
+
+        if (isset($first_location_value) && isset($locations_info[$first_location_value])) {
+          $af_location_info = $locations_info[$first_location_value];
+          $location_id = $af_location_info['nid'];
+        }
+      }
       $item_data = [
         'nid' => $entity->id(),
         'availability_note' => $availability_note,
@@ -467,9 +479,9 @@ class OpenyActivityFinderSolrBackend extends OpenyActivityFinderBackend {
         'schedule' => $schedule_items,
         'days' => $schedule_items[0]['days'] ?? '',
         'times' => $schedule_items[0]['time'] ?? '',
-        'location' => $fields['field_session_location']->getValues()[0],
-        'location_id' => $locations_info[$fields['field_session_location']->getValues()[0]]['nid'],
-        'location_info' => $locations_info[$fields['field_session_location']->getValues()[0]],
+        'location' => $first_location_value,
+        'location_id' => $location_id,
+        'location_info' => $af_location_info,
         'instructor' => $instructor,
         'log_id' => $log_id,
         'name' => $fields['title']->getValues()[0]->getText(),
