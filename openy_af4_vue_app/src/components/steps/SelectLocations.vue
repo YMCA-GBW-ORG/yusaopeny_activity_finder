@@ -147,7 +147,9 @@ export default {
     if (!this.facetCount(this.homeBranchId)) {
       return
     }
-    this.selectedLocations.push(window.drupalSettings.home_branch.hb_menu_selector.locations[this.homeBranchId])
+    this.selectedLocations.push(
+      window.drupalSettings.home_branch.hb_menu_selector.locations[this.homeBranchId]
+    )
   },
   methods: {
     onChange(location) {

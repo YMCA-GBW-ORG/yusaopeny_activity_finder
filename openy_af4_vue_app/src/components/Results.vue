@@ -45,9 +45,7 @@
             :disable-spots-available="disableSpotsAvailable"
             @showActivityDetailsModal="showActivityDetailsModal($event)"
           />
-          <YGBWAds
-              :selected-activities="data.facets.field_activity_category"
-          />
+          <YGBWAds :selected-activities="data.facets.field_activity_category" />
           <ResultsList
             :results="data.table.slice(2)"
             :ages="ages"

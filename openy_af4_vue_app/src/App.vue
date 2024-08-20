@@ -463,8 +463,8 @@ export default {
         { value: 'September', label: 'Sep' },
         { value: 'October', label: 'Oct' },
         { value: 'November', label: 'Nov' },
-        { value: 'December', label: 'Dec' },
-      ],
+        { value: 'December', label: 'Dec' }
+      ]
     }
 
     // Identify daxko backend.
@@ -758,11 +758,11 @@ export default {
       const query = this.$route.query
       const allowed_queries_array = window.drupalSettings?.utm
       if (allowed_queries_array && allowed_queries_array.length > 0) {
-        const allowed_queries = allowed_queries_array
-          .reduce((collection, key) => (
-            { ...collection, [key]: ''}), {}
-          )
-        this.defaults = {...this.defaults, ...allowed_queries}
+        const allowed_queries = allowed_queries_array.reduce(
+          (collection, key) => ({ ...collection, [key]: '' }),
+          {}
+        )
+        this.defaults = { ...this.defaults, ...allowed_queries }
       }
       for (let key in this.defaults) {
         if (query.hasOwnProperty(key) && query[key] !== '') {
