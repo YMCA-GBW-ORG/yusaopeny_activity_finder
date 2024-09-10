@@ -8,6 +8,22 @@
     </div>
     <div class="filters">
       <Fieldset
+        :label="'Locations' | t"
+        :collapse-id="id + '-toggle-locations'"
+        :collapsed="fieldsetCollapseState('locations')"
+        :counter="locationFiltersCount"
+        :hide-counter="true"
+      >
+        <LocationsFilter
+          :id="id + '-locations-filter'"
+          v-model="selectedLocations"
+          :locations="locations"
+          :facets="data.facets.locations"
+          :exclude-by-location="excludeByLocation"
+        />
+      </Fieldset>
+
+      <Fieldset
         :label="'Schedules' | t"
         :collapse-id="id + '-toggle-schedules'"
         :collapsed="fieldsetCollapseState('schedule')"
@@ -67,22 +83,6 @@
           :multiple="!daxko"
           :limit-by-category="limitByCategory"
           :exclude-by-category="excludeByCategory"
-        />
-      </Fieldset>
-
-      <Fieldset
-        :label="'Locations' | t"
-        :collapse-id="id + '-toggle-locations'"
-        :collapsed="fieldsetCollapseState('locations')"
-        :counter="locationFiltersCount"
-        :hide-counter="true"
-      >
-        <LocationsFilter
-          :id="id + '-locations-filter'"
-          v-model="selectedLocations"
-          :locations="locations"
-          :facets="data.facets.locations"
-          :exclude-by-location="excludeByLocation"
         />
       </Fieldset>
     </div>
