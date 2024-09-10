@@ -3,8 +3,16 @@
     <!--eslint-disable-next-line-->
     <div class="ygbw-ads__image" v-html="data.image"></div>
     <div class="ygbw-ads__content">
-      <a :href="data.link" class="ygbw-ads__content__title" target="_blank" :style="{ color: data.text_color }">{{ data.title }}</a>
-      <p class="ygbw-ads__content__subtitle" :style="{ color: data.text_color }">{{ data.subtitle }}</p>
+      <a
+        :href="data.link"
+        class="ygbw-ads__content__title"
+        target="_blank"
+        :style="{ color: data.text_color }"
+        >{{ data.title }}</a
+      >
+      <p class="ygbw-ads__content__subtitle" :style="{ color: data.text_color }">
+        {{ data.subtitle }}
+      </p>
     </div>
   </div>
 </template>

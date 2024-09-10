@@ -108,7 +108,7 @@ import DaysTimesFilter from '@/components/filters/DaysTimes.vue'
 import WeeksFilter from '@/components/filters/Weeks.vue'
 import LocationsFilter from '@/components/filters/Locations.vue'
 import ActivitiesFilter from '@/components/filters/Activities.vue'
-import MonthsFilter from '@/components/filters/Months.vue';
+import MonthsFilter from '@/components/filters/Months.vue'
 
 export default {
   name: 'Filters',
@@ -225,8 +225,8 @@ export default {
     },
     months: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {

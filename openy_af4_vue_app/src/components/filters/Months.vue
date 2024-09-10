@@ -7,7 +7,11 @@
     class="month-filter-component"
   >
     <div class="row">
-      <div v-for="month in months" :key="id + '-month-' + month.value" class="month-option col-4 col-xs-4">
+      <div
+        v-for="month in months"
+        :key="id + '-month-' + month.value"
+        class="month-option col-4 col-xs-4"
+      >
         <input
           :id="id + '-month-' + month.value"
           v-model="selectedMonths"
@@ -70,7 +74,7 @@ export default {
     facetCount(value) {
       let facet = this.facets.find(x => x.value === value)
       return facet ? facet.count : 0
-    },
+    }
   }
 }
 </script>

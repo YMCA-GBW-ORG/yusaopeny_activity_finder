@@ -113,8 +113,8 @@
             <div v-if="item.dates" class="item-detail dates">
               <font-awesome-icon icon="calendar" />
               <span>
-                <span class="info" v-for="(date, index) in item.dates" :key="index">
-                  {{ date }}<br>
+                <span v-for="(date, index) in item.dates" :key="index" class="info">
+                  {{ date }}<br />
                 </span>
               </span>
             </div>

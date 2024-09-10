@@ -13,6 +13,7 @@
           <div class="col-12 col-xs-12 col-md-6 left-wrapper">
             <div class="left">
               <div class="title">{{ item.name }}</div>
+              <!--eslint-disable-next-line-->
               <div class="description" v-html="item.description"></div>
               <div v-if="item.ages" class="row ages">
                 <div class="col-3 col-xs-3">
@@ -38,8 +39,8 @@
                 <div v-if="item.dates" class="item-detail dates">
                   <font-awesome-icon icon="calendar" />
                   <span>
-                    <span class="info" v-for="(date, index) in item.dates" :key="index">
-                      {{ date }}<br>
+                    <span v-for="(date, index) in item.dates" :key="index" class="info">
+                      {{ date }}<br />
                     </span>
                   </span>
                 </div>
